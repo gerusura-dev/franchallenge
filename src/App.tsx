@@ -103,8 +103,6 @@ function App() {
     }
 
     const processInput = (text: string) => {
-        console.log(text);
-
         let roleText = "なし";
         let scoreText = "0";
 
