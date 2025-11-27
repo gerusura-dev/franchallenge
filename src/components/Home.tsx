@@ -102,8 +102,8 @@ function Home() {
     }
 
     const processInput = (text: string) => {
-        let roleText = "なし";
-        let scoreText = "0";
+        let roleText: string;
+        let scoreText: string;
 
         if (text == "ふらんちゃん") {
             roleText = "ふらんちゃん";
@@ -111,34 +111,50 @@ function Home() {
         } else if (text == "んちゃんらふ") {
             roleText = "逆から読んでも";
             scoreText = "25,000";
-        } else if (tear3(text)) {
-            roleText = "順不同明王";
-            scoreText = "5";
-        } else if (tear4(text)) {
-            roleText = "満場一致";
-            scoreText = "3"
-        } else if (tear5(text)) {
-            roleText = "上の句揃え";
-            scoreText = "2";
-        } else if (tear6(text)) {
-            roleText = "下の句揃え";
-            scoreText = "2";
-        } else if (tear7(text)) {
-            roleText = "ロケットランチャー";
-            scoreText = "2";
-        } else if (tear8(text)) {
-            roleText = "出荷よ(´・ω・`)";
-            scoreText = "2";
-        } else if (tear9(text)) {
-            roleText = "一心ふらん";
-            scoreText = "1";
-        } else if (tear10(text)) {
-            roleText = "ワンちゃんある";
-            scoreText = "1";
+        } else {
+            const roles = [];
+            roleText = "役なし";
+            let score = 0;
+            if (tear3(text)) {
+                roles.push("順不同明王")
+                score += 5;
+            }
+            if (tear4(text)) {
+                roles.push("満場一致");
+                score += 3;
+            }
+            if (tear5(text)) {
+                roles.push("上の句揃え");
+                score += 2;
+            }
+            if (tear6(text)) {
+                roles.push("下の句揃え");
+                score += 2;
+            }
+            if (tear7(text)) {
+                roles.push("ロケットランチャー");
+                score += 2;
+            }
+            if (tear8(text)) {
+                roles.push("出荷よ(´・ω・`)");
+                score += 2;
+            }
+            if (tear9(text)) {
+                roles.push("一心ふらん");
+                score += 1;
+            }
+            if (tear10(text)) {
+                roles.push("ワンちゃんある");
+                score += 1;
+            }
+            if (roles.length > 0) {
+                roleText = roles.join("\n");
+            }
+            scoreText = score.toString();
         }
 
         setRole(roleText);
-        setScore(scoreText);
+        setScore("点数：" + scoreText + "点");
     }
 
     return (
@@ -149,8 +165,8 @@ function Home() {
 
                 <div className="card">
                     <div style={{marginBottom: '0.5rem'}}>
-                        <p>役：{role}</p>
-                        <p>点数：{score}点</p>
+                        <p style={{marginBottom: "0.5rem", whiteSpace: 'pre-line'}}>{role}</p>
+                        <p>{score}</p>
                     </div>
 
                     <div>
