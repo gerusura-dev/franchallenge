@@ -18,61 +18,61 @@ function PointTable() {
             <div style={{marginTop: '3rem'}}>
                 <h1 className="title">役一覧</h1>
                 <PointCard
-                    title={'ふらんちゃん'}
+                    title={'ふらんちゃん：単独役'}
                     description={'「ふらんちゃん」の並びになっている'}
                     points={'5,000,000'}
                     defaultCollapsed={true}
                 />
                 <PointCard
-                    title={'逆から読んでも'}
+                    title={'逆から読んでも：単独役'}
                     description={'「んちゃんらふ」の並びになっている'}
                     points={'25,000'}
                     defaultCollapsed={true}
                 />
                 <PointCard
-                    title={'順不同明王'}
+                    title={'順不同明王：複合役'}
                     description={'「ふ」「ら」「ちゃ」が1つずつ、「ん」が2つ入っている'}
                     points={'5'}
                     defaultCollapsed={true}
                 />
                 <PointCard
-                    title={'満場一致'}
+                    title={'満場一致：複合役'}
                     description={'5文字全てがいずれか1種類の文字'}
                     points={'3'}
                     defaultCollapsed={true}
                 />
                 <PointCard
-                    title={'上の句揃え'}
+                    title={'上の句揃え：複合役'}
                     description={'「ふらん」から始まる'}
                     points={'2'}
                     defaultCollapsed={true}
                 />
                 <PointCard
-                    title={'下の句揃え'}
+                    title={'下の句揃え：複合役'}
                     description={'「ちゃん」で終わる'}
                     points={'2'}
                     defaultCollapsed={true}
                 />
                 <PointCard
-                    title={'ロケットランチャー'}
+                    title={'ロケットランチャー：複合役'}
                     description={'「らんちゃ」が入っている'}
                     points={'2'}
                     defaultCollapsed={true}
                 />
                 <PointCard
-                    title={'出荷よ(´・ω・`)'}
+                    title={'出荷よ(´・ω・`)：複合役'}
                     description={'「らんらん」が入っている'}
                     points={'2'}
                     defaultCollapsed={true}
                 />
                 <PointCard
-                    title={'一心ふらん'}
+                    title={'一心ふらん：複合役'}
                     description={'「ふらん」が入っている'}
                     points={'1'}
                     defaultCollapsed={true}
                 />
                 <PointCard
-                    title={'ワンちゃんある'}
+                    title={'ワンちゃんある：複合役'}
                     description={'「ちゃん」が入っている'}
                     points={'1'}
                     defaultCollapsed={true}
@@ -87,7 +87,7 @@ function PointCard({title, description, points, defaultCollapsed = true}: PointC
 
     return (
         <>
-            <div style={{marginTop: '2rem', width: '70vw'}}>
+            <div style={{marginTop: '2rem', width: '80vw', maxWidth: '600px'}}>
                 <div className="card">
                     <header className="card-header">
                         <p className="card-header-title">{title}</p>
