@@ -1,5 +1,1 @@
-# Deploy
-
-```bash
-firebase deploy
-```
+# Fran Challenge
