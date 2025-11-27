@@ -113,7 +113,7 @@ function Home() {
             scoreText = "25,000";
         } else {
             const roles = [];
-            roleText = "";
+            roleText = "役なし";
             let score = 0;
             if (tear3(text)) {
                 roles.push("順不同明王")
@@ -147,10 +147,9 @@ function Home() {
                 roles.push("ワンちゃんある");
                 score += 1;
             }
-            if (roles.length === 0) {
-                roleText = "なし";
+            if (roles.length > 0) {
+                roleText = roles.join("\n");
             }
-            roleText = roles.join("\n");
             scoreText = score.toString();
         }
 
