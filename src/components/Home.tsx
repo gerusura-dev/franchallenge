@@ -102,7 +102,7 @@ function Home() {
     }
 
     const processInput = (text: string) => {
-        let roleText = "役：なし";
+        let roleText = "なし";
         let scoreText = "0";
 
         if (text == "ふらんちゃん") {
