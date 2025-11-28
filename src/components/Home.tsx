@@ -94,7 +94,7 @@ function Home() {
 
     const tear10 = (s: string): boolean => {
         const tokens = tokenize(s)
-        for (let i = 0; i <= tokens.length - 3; i++) {
+        for (let i = 0; i <= tokens.length - 2; i++) {
             if (tokens[i] === 'ちゃ' && tokens[i + 1] === 'ん') {
                 return true
             }
