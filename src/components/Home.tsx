@@ -5,6 +5,7 @@ function Home() {
     const [inputText, setInputText] = useState('')
     const [role, setRole] = useState('')
     const [score, setScore] = useState('')
+    const [isJudged, setIsJudged] = useState(false)
 
     const tokenize = (s: string): string[] => {
         const tokens: string[] = []
@@ -155,6 +156,18 @@ function Home() {
 
         setRole(roleText);
         setScore("点数：" + scoreText + "点");
+        setIsJudged(true);
+    }
+
+    const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+        setInputText(e.target.value);
+        setIsJudged(false);
+    }
+
+    const handlePostToX = () => {
+        const text = `${inputText}\n\n${role}\n\n${score}\n\n#ふらんちゃんチャレンジ`
+        const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`
+        window.open(url, '_blank')
     }
 
     return (
@@ -174,14 +187,25 @@ function Home() {
                             className="input is-primary"
                             style={{marginBottom: '0.5rem'}}
                             value={inputText}
-                            onChange={(e: ChangeEvent<HTMLInputElement>) => setInputText(e.target.value)}
+                            onChange={handleChange}
                         />
-                        <button
-                            className="button is-primary"
-                            onClick={() => processInput(inputText)}
-                        >
-                            判定！
-                        </button>
+
+                        {isJudged ? (
+                            <button
+                                className="button is-info"
+                                onClick={handlePostToX}
+                            >
+                                Xに投稿
+                            </button>
+                        ) : (
+                            <button
+                                className="button is-primary"
+                                onClick={() => processInput(inputText)}
+                            >
+                                判定！
+                            </button>
+                        )}
+
                     </div>
                 </div>
             </div>
