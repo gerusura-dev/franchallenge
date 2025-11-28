@@ -167,7 +167,7 @@ function Home() {
     }
 
     const handlePostToX = () => {
-        const text = `${inputText}\n\n${role}\n\n${score}\n\n#ふらんちゃんチャレンジ`
+        const text = `${inputText}\n\n${role}\n\n${score}\n\n#ふらんちゃんチャレンジ\nhttps://franchallenge.web.app`
         const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`
         window.open(url, '_blank')
     }
