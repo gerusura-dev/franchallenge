@@ -161,6 +161,8 @@ function Home() {
 
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
         setInputText(e.target.value);
+        setRole("");
+        setScore("");
         setIsJudged(false);
     }
 
