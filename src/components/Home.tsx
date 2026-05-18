@@ -147,6 +147,8 @@ function Home() {
         return false
     }
 
+    const omochaNoChachacha = (s: string): boolean => s.includes('ちゃちゃちゃ');
+
     const processInput = (text: string) => {
         let roleText: string;
         let scoreText: string;
@@ -272,6 +274,10 @@ function Home() {
 
                 roles.push("誰よその女！")
                 score += 3;
+            }
+            if (omochaNoChachacha(text)) {
+                roles.push("おもちゃのちゃちゃちゃ")
+                score += 2;
             }
 
             if (roles.length > 0) {
