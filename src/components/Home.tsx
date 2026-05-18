@@ -148,13 +148,7 @@ function Home() {
     }
 
     const tear16 = (s: string): boolean => {
-        const tokens = tokenize(s)
-        for (let i = 0; i <= tokens.length - 4; i++) {
-            if (tokens[i] === 'ふ' && tokens[i + 1] === 'ん' && tokens[i + 2] === 'ふ' && tokens[i + 3] === 'ん') {
-                return true
-            }
-        }
-        return false
+        return s.includes('ふんふん')
     }
 
     const processInput = (text: string) => {
