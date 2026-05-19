@@ -147,6 +147,14 @@ function Home() {
         return false
     }
 
+    const franMisui = (s: string): boolean => {
+        const tokens = tokenize(s)
+        if (tokens.length !== 5) return false
+
+        const correctTokens = ['ふ', 'ら', 'ん', 'ちゃ', 'ん'] as const
+        return tokens.filter((token, i) => token === correctTokens[i]).length === 4
+    }
+
     const processInput = (text: string) => {
         let roleText: string;
         let scoreText: string;
@@ -271,6 +279,10 @@ function Home() {
                  */
 
                 roles.push("誰よその女！")
+                score += 3;
+            }
+            if (franMisui(text)) {
+                roles.push("ふらん未遂")
                 score += 3;
             }
 
