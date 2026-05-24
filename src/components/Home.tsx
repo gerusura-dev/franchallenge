@@ -156,7 +156,6 @@ function Home() {
     const pokerHands = (s: string): PokerHand | false => {
         const tokens = tokenize(s)
         if (tokens.length !== 5 || !isCorrectTokenArray(tokens)) {
-            console.log(tokens.length, isCorrectTokenArray(tokens))
             return false
         }
 
@@ -304,6 +303,36 @@ function Home() {
 
                 roles.push("誰よその女！")
                 score += 3;
+            }
+
+            const pokerHand = pokerHands(text)
+            if (pokerHand) {
+                const handInfo = {
+                    'FOUR_OF_A_KIND': {
+                        name: '4と鳴く犬',
+                        score: 3,
+                    },
+                    'FULL_HOUSE': {
+                        name: 'ふらハウス',
+                        score: 3,
+                    },
+                    'THREE_OF_A_KIND': {
+                        name: 'デコ助野郎',
+                        score: 2,
+                    },
+                    'TWO_PAIR': {
+                        name: 'ふ2（りゃん）ちゃん',
+                        score: 2,
+                    },
+                    'ONE_PAIR': {
+                        name: 'ふ1（ワン）ちゃん',
+                        score: 1,
+                    },
+                } as const satisfies Record<PokerHand, { name: string, score: number }>
+
+                const hand = handInfo[pokerHand]
+                roles.push(hand.name)
+                score += hand.score
             }
 
             if (roles.length > 0) {
