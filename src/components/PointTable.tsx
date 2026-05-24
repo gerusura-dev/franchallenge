@@ -68,15 +68,15 @@ function PointTable() {
                     defaultCollapsed={true}
                 />
                 <PointCard
-                    title={'4と鳴く犬：複合役'}
-                    description={'同じ文字が4つ入っている'}
+                    title={'4と鳴く犬：複合役（ポーカー役）'}
+                    description={'同じ文字が4つ入っている（他のポーカー役とは複合しない）'}
                     probability={0}
                     points={'3'}
                     defaultCollapsed={true}
                 />
                 <PointCard
-                    title={'ふらハウス：複合役'}
-                    description={'同じ文字が3つ入っており、別の文字のペアが入っている'}
+                    title={'ふらハウス：複合役（ポーカー役）'}
+                    description={'同じ文字が3つ入っており、別の文字のペアが入っている（他のポーカー役とは複合しない）'}
                     probability={0}
                     points={'3'}
                     defaultCollapsed={true}
@@ -117,15 +117,15 @@ function PointTable() {
                     defaultCollapsed={true}
                 />
                 <PointCard
-                    title={'ふ2（りゃん）ちゃん：複合役'}
-                    description={'同じ文字のペアが2つ入っている'}
+                    title={'ふ2（りゃん）ちゃん：複合役（ポーカー役）'}
+                    description={'同じ文字のペアが2つ入っている（他のポーカー役とは複合しない）'}
                     probability={0}
                     points={'2'}
                     defaultCollapsed={true}
                 />
                 <PointCard
-                    title={'デコ助野郎：複合役'}
-                    description={'同じ文字が3つ入っている'}
+                    title={'デコ助野郎：複合役（ポーカー役）'}
+                    description={'同じ文字が3つ入っている（他のポーカー役とは複合しない）'}
                     probability={0}
                     points={'2'}
                     defaultCollapsed={true}
@@ -152,8 +152,8 @@ function PointTable() {
                     defaultCollapsed={true}
                 />
                 <PointCard
-                    title={'ふ1（ワン）ちゃん：複合役'}
-                    description={'同じ文字のペアが入っている'}
+                    title={'ふ1（ワン）ちゃん：複合役（ポーカー役）'}
+                    description={'同じ文字のペアが1つ入っている（他のポーカー役とは複合しない）'}
                     probability={0}
                     points={'1'}
                     defaultCollapsed={true}
