@@ -68,6 +68,20 @@ function PointTable() {
                     defaultCollapsed={true}
                 />
                 <PointCard
+                    title={'ふらん未遂：複合役'}
+                    description={'「ふらんちゃん」と1文字違い'}
+                    probability={0}
+                    points={'3'}
+                    defaultCollapsed={true}
+                />
+                <PointCard
+                    title={'ふんふん太郎：複合役'}
+                    description={'「ふんふん」が入っている'}
+                    probability={0}
+                    points={'3'}
+                    defaultCollapsed={true}
+                />
+                <PointCard
                     title={'上の句揃え：複合役'}
                     description={'「ふらん」から始まる'}
                     probability={62.46}
@@ -98,6 +112,13 @@ function PointTable() {
                 <PointCard
                     title={'ちゃらんぷらん：複合役'}
                     description={'「ちゃらん」が入っている'}
+                    probability={0}
+                    points={'2'}
+                    defaultCollapsed={true}
+                />
+                <PointCard
+                    title={'おもちゃのちゃちゃちゃ：複合役'}
+                    description={'「ちゃちゃちゃ」が入っている'}
                     probability={0}
                     points={'2'}
                     defaultCollapsed={true}
@@ -153,9 +174,12 @@ function PointCard({title, description, points, probability, defaultCollapsed = 
                             <div className="content">{description}</div>
                         </div>
                     )}
-                    {!collapsed && points !== undefined && probability > 0 && (
+                    {!collapsed && points !== undefined && (
                         <footer className="card-footer">
-                            <p className="card-footer-item">{points}点（1/{probability}）</p>
+                            <p className="card-footer-item">
+                                {points}点
+                                {probability > 0 && (<>（1/{probability}）</>)}
+                            </p>
                         </footer>
                     )}
                 </div>
