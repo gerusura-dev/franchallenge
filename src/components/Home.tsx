@@ -148,6 +148,8 @@ function Home() {
     }
 
     const omochaNoChachacha = (s: string): boolean => s.includes('ちゃちゃちゃ');
+  
+    const funfunTarou = (s: string): boolean => s.includes('ふんふん')
 
     const processInput = (text: string) => {
         let roleText: string;
@@ -278,6 +280,10 @@ function Home() {
             if (omochaNoChachacha(text)) {
                 roles.push("おもちゃのちゃちゃちゃ")
                 score += 2;
+            }
+            if (funfunTarou(text)) {
+                roles.push("ふんふん太郎")
+                score += 3;
             }
 
             if (roles.length > 0) {
