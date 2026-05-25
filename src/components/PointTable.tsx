@@ -110,6 +110,13 @@ function PointTable() {
                     defaultCollapsed={true}
                 />
                 <PointCard
+                    title={'おもちゃのちゃちゃちゃ：複合役'}
+                    description={'「ちゃちゃちゃ」が入っている'}
+                    probability={0}
+                    points={'2'}
+                    defaultCollapsed={true}
+                />
+                <PointCard
                     title={'一心ふらん：複合役'}
                     description={'「ふらん」が入っている'}
                     probability={20.84}
