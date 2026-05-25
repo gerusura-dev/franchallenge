@@ -147,6 +147,14 @@ function Home() {
         return false
     }
 
+    const franMisui = (s: string): boolean => {
+        const tokens = tokenize(s)
+        if (tokens.length !== 5) return false
+
+        const correctTokens = ['ふ', 'ら', 'ん', 'ちゃ', 'ん'] as const
+        return tokens.filter((token, i) => token === correctTokens[i]).length === 4
+    }
+    
     const omochaNoChachacha = (s: string): boolean => s.includes('ちゃちゃちゃ');
   
     const funfunTarou = (s: string): boolean => s.includes('ふんふん')
@@ -275,6 +283,10 @@ function Home() {
                  */
 
                 roles.push("誰よその女！")
+                score += 3;
+            }
+            if (franMisui(text)) {
+                roles.push("ふらん未遂")
                 score += 3;
             }
             if (omochaNoChachacha(text)) {

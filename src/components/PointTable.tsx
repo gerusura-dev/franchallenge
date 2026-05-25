@@ -68,6 +68,13 @@ function PointTable() {
                     defaultCollapsed={true}
                 />
                 <PointCard
+                    title={'ふらん未遂：複合役'}
+                    description={'「ふらんちゃん」と1文字違い'}
+                    probability={0}
+                    points={'3'}
+                    defaultCollapsed={true}
+                />
+                <PointCard
                     title={'ふんふん太郎：複合役'}
                     description={'「ふんふん」が入っている'}
                     probability={0}
