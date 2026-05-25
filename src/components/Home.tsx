@@ -147,6 +147,8 @@ function Home() {
         return false
     }
 
+    const funfunTarou = (s: string): boolean => s.includes('ふんふん')
+
     const processInput = (text: string) => {
         let roleText: string;
         let scoreText: string;
@@ -271,6 +273,10 @@ function Home() {
                  */
 
                 roles.push("誰よその女！")
+                score += 3;
+            }
+            if (funfunTarou(text)) {
+                roles.push("ふんふん太郎")
                 score += 3;
             }
 
