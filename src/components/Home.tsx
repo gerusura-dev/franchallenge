@@ -154,6 +154,10 @@ function Home() {
         const correctTokens = ['ふ', 'ら', 'ん', 'ちゃ', 'ん'] as const
         return tokens.filter((token, i) => token === correctTokens[i]).length === 4
     }
+    
+    const omochaNoChachacha = (s: string): boolean => s.includes('ちゃちゃちゃ');
+  
+    const funfunTarou = (s: string): boolean => s.includes('ふんふん')
 
     const processInput = (text: string) => {
         let roleText: string;
@@ -283,6 +287,14 @@ function Home() {
             }
             if (franMisui(text)) {
                 roles.push("ふらん未遂")
+                score += 3;
+            }
+            if (omochaNoChachacha(text)) {
+                roles.push("おもちゃのちゃちゃちゃ")
+                score += 2;
+            }
+            if (funfunTarou(text)) {
+                roles.push("ふんふん太郎")
                 score += 3;
             }
 
