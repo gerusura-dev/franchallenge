@@ -68,6 +68,20 @@ function PointTable() {
                     defaultCollapsed={true}
                 />
                 <PointCard
+                    title={'ふらん未遂：複合役'}
+                    description={'「ふらんちゃん」と1文字違い'}
+                    probability={0}
+                    points={'3'}
+                    defaultCollapsed={true}
+                />
+                <PointCard
+                    title={'ふんふん太郎：複合役'}
+                    description={'「ふんふん」が入っている'}
+                    probability={0}
+                    points={'3'}
+                    defaultCollapsed={true}
+                />
+                <PointCard
                     title={'4と鳴く犬：複合役（ポーカー役）'}
                     description={'同じ文字が4つ入っている（他のポーカー役とは複合しない）'}
                     probability={0}
@@ -112,6 +126,13 @@ function PointTable() {
                 <PointCard
                     title={'ちゃらんぷらん：複合役'}
                     description={'「ちゃらん」が入っている'}
+                    probability={0}
+                    points={'2'}
+                    defaultCollapsed={true}
+                />
+                <PointCard
+                    title={'おもちゃのちゃちゃちゃ：複合役'}
+                    description={'「ちゃちゃちゃ」が入っている'}
                     probability={0}
                     points={'2'}
                     defaultCollapsed={true}
