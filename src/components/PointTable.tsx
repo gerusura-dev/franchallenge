@@ -82,6 +82,20 @@ function PointTable() {
                     defaultCollapsed={true}
                 />
                 <PointCard
+                    title={'4と鳴く犬：複合役（ポーカー役）'}
+                    description={'同じ文字が4つ入っている（他のポーカー役とは複合しない）'}
+                    probability={0}
+                    points={'3'}
+                    defaultCollapsed={true}
+                />
+                <PointCard
+                    title={'ふらハウス：複合役（ポーカー役）'}
+                    description={'同じ文字が3つ入っており、別の文字のペアが入っている（他のポーカー役とは複合しない）'}
+                    probability={0}
+                    points={'3'}
+                    defaultCollapsed={true}
+                />
+                <PointCard
                     title={'上の句揃え：複合役'}
                     description={'「ふらん」から始まる'}
                     probability={62.46}
@@ -124,6 +138,20 @@ function PointTable() {
                     defaultCollapsed={true}
                 />
                 <PointCard
+                    title={'ふ2（りゃん）ちゃん：複合役（ポーカー役）'}
+                    description={'同じ文字のペアが2つ入っている（他のポーカー役とは複合しない）'}
+                    probability={0}
+                    points={'2'}
+                    defaultCollapsed={true}
+                />
+                <PointCard
+                    title={'デコ助野郎：複合役（ポーカー役）'}
+                    description={'同じ文字が3つ入っている（他のポーカー役とは複合しない）'}
+                    probability={0}
+                    points={'2'}
+                    defaultCollapsed={true}
+                />
+                <PointCard
                     title={'一心ふらん：複合役'}
                     description={'「ふらん」が入っている'}
                     probability={20.84}
@@ -140,6 +168,13 @@ function PointTable() {
                 <PointCard
                     title={'ちゃふ台返し：複合役'}
                     description={'「ちゃふ」が入っている'}
+                    probability={0}
+                    points={'1'}
+                    defaultCollapsed={true}
+                />
+                <PointCard
+                    title={'ふ1（ワン）ちゃん：複合役（ポーカー役）'}
+                    description={'同じ文字のペアが1つ入っている（他のポーカー役とは複合しない）'}
                     probability={0}
                     points={'1'}
                     defaultCollapsed={true}

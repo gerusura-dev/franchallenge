@@ -159,6 +159,37 @@ function Home() {
   
     const funfunTarou = (s: string): boolean => s.includes('ふんふん')
 
+    const correctTokens = ['ふ', 'ら', 'ん', 'ちゃ'] as const
+    const isCorrectTokenArray = (array: string[]): array is Token[] => array.every(s => (correctTokens as unknown as string[]).includes(s))
+
+    type Token = typeof correctTokens[number]
+    type PokerHand = 'ONE_PAIR' | 'TWO_PAIR' | 'THREE_OF_A_KIND' | 'FOUR_OF_A_KIND' | 'FULL_HOUSE'
+
+    const pokerHands = (s: string): PokerHand | false => {
+        const tokens = tokenize(s)
+        if (tokens.length !== 5 || !isCorrectTokenArray(tokens)) {
+            return false
+        }
+
+        // 1番目、2番目に多いトークンを求める
+        const tokenCounts = tokens.reduce<Partial<Record<Token, number>>>((acc, cur) => {
+            acc[cur] = (acc[cur] ?? 0) + 1
+            return acc
+        }, {})
+        const [ first, second ] = Object.values(tokenCounts).sort((a, b) => b - a)
+
+        const countsPattern: `${number},${number | 'n'}` = `${first},${second === 2 ? 2 : 'n'}`
+        const patternHandMap: Partial<Record<typeof countsPattern, PokerHand>> = {
+            '4,n': 'FOUR_OF_A_KIND',
+            '3,2': 'FULL_HOUSE',
+            '3,n': 'THREE_OF_A_KIND',
+            '2,2': 'TWO_PAIR',
+            '2,n': 'ONE_PAIR',
+        } as const
+
+        return patternHandMap[countsPattern] ?? false
+    }
+
     const processInput = (text: string) => {
         let roleText: string;
         let scoreText: string;
@@ -296,6 +327,36 @@ function Home() {
             if (funfunTarou(text)) {
                 roles.push("ふんふん太郎")
                 score += 3;
+            }
+
+            const pokerHand = pokerHands(text)
+            if (pokerHand) {
+                const handInfo = {
+                    'FOUR_OF_A_KIND': {
+                        name: '4と鳴く犬',
+                        score: 3,
+                    },
+                    'FULL_HOUSE': {
+                        name: 'ふらハウス',
+                        score: 3,
+                    },
+                    'THREE_OF_A_KIND': {
+                        name: 'デコ助野郎',
+                        score: 2,
+                    },
+                    'TWO_PAIR': {
+                        name: 'ふ2（りゃん）ちゃん',
+                        score: 2,
+                    },
+                    'ONE_PAIR': {
+                        name: 'ふ1（ワン）ちゃん',
+                        score: 1,
+                    },
+                } as const satisfies Record<PokerHand, { name: string, score: number }>
+
+                const hand = handInfo[pokerHand]
+                roles.push(hand.name)
+                score += hand.score
             }
 
             if (roles.length > 0) {
