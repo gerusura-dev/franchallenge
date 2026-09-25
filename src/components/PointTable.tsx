@@ -1,4 +1,4 @@
-import { franChallengeHands } from '../util/hands'
+import { franChallengeHands } from '../util/constants'
 import PointCard from './PointCard'
 
 export default function PointTable() {

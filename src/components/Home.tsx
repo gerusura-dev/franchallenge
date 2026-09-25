@@ -1,8 +1,7 @@
 import 'bulma/css/bulma.css'
 import {useState, type ChangeEvent} from 'react'
 import type { FranChallengeToken, FranChallengeHand, FranChallengeHandType } from '../util/types'
-import { franChallengeTokens } from '../util/judge'
-import { franChallengeHands } from '../util/hands'
+import { franChallengeTokens, franChallengeHands } from '../util/constants'
 
 export default function Home() {
   const [inputText, setInputText] = useState('')

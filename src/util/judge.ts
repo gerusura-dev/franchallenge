@@ -1,7 +1,5 @@
 import type { FranChallengeToken, FranChallengeString, FranChallengeStringFragment, PokerHand } from './types'
-
-// TODO: judge.tsで持つべきでない？
-export const franChallengeTokens: FranChallengeToken[] = ['ふ', 'ら', 'ん', 'ちゃ'] as const
+import { franChallengeTokens } from './constants'
 
 // 完全一致・部分一致の判定関数を返す関数
 export const equalsTo = (target: FranChallengeString) => (tokens: FranChallengeToken[]) => tokens.join('') === target

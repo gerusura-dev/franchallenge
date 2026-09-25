@@ -1,5 +1,7 @@
-import type { FranChallengeHand } from './types'
+import type { FranChallengeToken, FranChallengeHand } from './types'
 import * as judge from './judge'
+
+export const franChallengeTokens: FranChallengeToken[] = ['ふ', 'ら', 'ん', 'ちゃ'] as const
 
 export const franChallengeHands: FranChallengeHand[] = [
   {
