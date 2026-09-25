@@ -7,13 +7,14 @@ export type FranChallengeStringFragment
   | `${FranChallengeToken}${FranChallengeToken}${FranChallengeToken}`
   | `${FranChallengeToken}${FranChallengeToken}${FranChallengeToken}${FranChallengeToken}`
 
+export type FranChallengeHandType = 'COMPOSITE' | 'NOT_COMPOSITE' | 'POKER'
+
 export type FranChallengeHand = {
   name: string,
   description: string,
   points: number,
   probability?: number,
-  canComposite: boolean,
-  isPokerHand: boolean,
+  type: FranChallengeHandType,
   judgeFunction: (tokens: FranChallengeToken[]) => boolean,
 }
 

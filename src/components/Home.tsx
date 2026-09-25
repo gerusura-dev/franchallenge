@@ -1,6 +1,6 @@
 import 'bulma/css/bulma.css'
 import {useState, type ChangeEvent} from 'react'
-import type { FranChallengeToken, FranChallengeHand } from '../util/types'
+import type { FranChallengeToken, FranChallengeHand, FranChallengeHandType } from '../util/types'
 import { franChallengeTokens } from '../util/judge'
 import { franChallengeHands } from '../util/hands'
 
@@ -53,11 +53,11 @@ export default function Home() {
     const pokerHands: FranChallengeHand[] = []
 
     for (const hand of franChallengeHands) {
-      if (hand.isPokerHand) {
-        pokerHands.push(hand)
-        continue
-      }
-      (hand.canComposite ? canCompositeHands : cannotCompositeHands).push(hand)
+      ({
+        COMPOSITE: canCompositeHands,
+        NOT_COMPOSITE: cannotCompositeHands,
+        POKER: pokerHands,
+      } satisfies Record<FranChallengeHandType, FranChallengeHand[]>)[hand.type].push(hand)
     }
 
     for (const hand of cannotCompositeHands.sort((a, b) => b.points - a.points)) {

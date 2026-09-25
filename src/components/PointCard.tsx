@@ -3,7 +3,7 @@ import {useState} from 'react'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faAngleDown} from "@fortawesome/free-solid-svg-icons"
 import {faAngleUp} from "@fortawesome/free-solid-svg-icons"
-import type { FranChallengeHand } from "../util/types"
+import type { FranChallengeHand, FranChallengeHandType } from "../util/types"
 
 type Props = Omit<FranChallengeHand, 'judgeFunction'> & { defaultCollapsed?: boolean }
 
@@ -12,14 +12,17 @@ export default function PointCard({
   description,
   points,
   probability,
-  canComposite,
-  isPokerHand,
+  type,
   defaultCollapsed = true,
 }: Props) {
   const [collapsed, setCollapsed] = useState(defaultCollapsed)
-  const handType = `${canComposite ? '複合' : '単独'}役${isPokerHand ? '・ポーカー役' : ''}`
+  const handTypeLabel = ({
+    COMPOSITE: '複合役',
+    NOT_COMPOSITE: '単独役',
+    POKER: '複合役・ポーカー役'
+  } satisfies Record<FranChallengeHandType, string>)[type]
 
-  if (isPokerHand) {
+  if (type === 'POKER') {
     description += '（他のポーカー役とは複合しない）'
   }
 
@@ -42,7 +45,7 @@ export default function PointCard({
           </header>
           {!collapsed && description && (
             <div className="card-content">
-              <p style={{marginBottom: '1rem'}}>{handType}</p>
+              <p style={{marginBottom: '1rem'}}>{handTypeLabel}</p>
               <div className="content">{description}</div>
             </div>
           )}
