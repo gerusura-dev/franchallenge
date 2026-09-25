@@ -1,9 +1,9 @@
 import 'bulma/css/bulma.css'
 import {useState} from 'react'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import {faAngleDown} from "@fortawesome/free-solid-svg-icons"
-import {faAngleUp} from "@fortawesome/free-solid-svg-icons"
-import type { FranChallengeHand, FranChallengeHandType } from "../util/types"
+import {faAngleDown} from '@fortawesome/free-solid-svg-icons'
+import {faAngleUp} from '@fortawesome/free-solid-svg-icons'
+import type { FranChallengeHand, FranChallengeHandType } from '../util/types'
 
 type Props = Omit<FranChallengeHand, 'judgeFunction'> & { defaultCollapsed?: boolean }
 

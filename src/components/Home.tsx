@@ -88,14 +88,14 @@ export default function Home() {
 
     setRole(appliedHands.map(h => h.name).join('\n'))
     setScore(appliedHands.reduce((acc, cur) => acc += cur.points, 0))
-    setIsJudged(true);
+    setIsJudged(true)
   }
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setInputText(e.target.value);
-    setRole('');
-    setScore(0);
-    setIsJudged(false);
+    setInputText(e.target.value)
+    setRole('')
+    setScore(0)
+    setIsJudged(false)
   }
 
   const handlePostToX = () => {
@@ -112,7 +112,7 @@ export default function Home() {
 
         <div className="card">
           <div style={{marginBottom: '0.5rem'}}>
-            <p style={{marginBottom: "0.5rem", whiteSpace: 'pre-line'}}>{role}</p>
+            <p style={{marginBottom: '0.5rem', whiteSpace: 'pre-line'}}>{role}</p>
             <p>{getScoreString()}</p>
           </div>
 

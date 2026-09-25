@@ -16,7 +16,7 @@ export const manjouIcchi = (tokens: FranChallengeToken[]) => tokens.every(t => t
 export const junfudouMyouou = (tokens: FranChallengeToken[]) => {
   const tokenCount = Object.fromEntries(franChallengeTokens.map(t => [t, 0]))
   for (const token of tokens) {
-    tokenCount[token]++;
+    tokenCount[token]++
   }
   return franChallengeTokens.every(t => tokenCount[t] === (t === 'ん' ? 2 : 1))
 }
