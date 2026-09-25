@@ -4,6 +4,7 @@ import reactHooks from 'eslint-plugin-react-hooks'
 import reactRefresh from 'eslint-plugin-react-refresh'
 import tseslint from 'typescript-eslint'
 import { defineConfig, globalIgnores } from 'eslint/config'
+import stylistic from '@stylistic/eslint-plugin'
 
 export default defineConfig([
   globalIgnores(['dist']),
@@ -19,5 +20,13 @@ export default defineConfig([
       ecmaVersion: 2020,
       globals: globals.browser,
     },
+    plugins: {
+      '@stylistic': stylistic,
+    },
+    rules: {
+      '@stylistic/quotes': ['error', 'single'],
+      '@stylistic/semi': ['error', 'never'],
+      '@stylistic/indent': ['error', 2],
+    }
   },
 ])
