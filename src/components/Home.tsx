@@ -110,10 +110,12 @@ export default function Home() {
         <h2 className="subtitle">自動判定機</h2>
 
         <div className="card">
-          <div style={{marginBottom: '0.5rem'}}>
-            <p style={{marginBottom: '0.5rem', whiteSpace: 'pre-line'}}>{role}</p>
-            <p>{getScoreString()}</p>
-          </div>
+          {isJudged ? (
+            <div style={{marginBottom: '0.5rem'}}>
+              <p style={{marginBottom: '0.5rem', whiteSpace: 'pre-line'}}>{role}</p>
+              <p>{getScoreString()}</p>
+            </div>
+          ) : null}
 
           <div>
             <input

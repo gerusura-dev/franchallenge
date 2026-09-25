@@ -1,6 +1,6 @@
 import './App.css'
 import 'bulma/css/bulma.css'
-import NavBar from './components/template/NavBar.tsx'
+import NavBar from './components/template/navbar.tsx'
 import Home from './components/Home'
 import PointTable from './components/PointTable'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
