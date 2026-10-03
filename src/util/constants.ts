@@ -147,6 +147,13 @@ export const franChallengeHands: FranChallengeHand[] = [
     judgeFunction: judge.dekosukeYarou,
   },
   {
+    name: '直売所ふんちゃ',
+    description: '「ふんちゃ」が入っている',
+    points: 2,
+    type: 'COMPOSITE',
+    judgeFunction: judge.includes('ふんちゃ'),
+  },
+  {
     name: '一心ふらん',
     description: '「ふらん」が入っている',
     probability: 20.84,

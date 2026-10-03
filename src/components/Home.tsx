@@ -5,7 +5,7 @@ import { franChallengeTokens, franChallengeHands } from '../util/constants'
 
 export default function Home() {
   const [inputText, setInputText] = useState('')
-  const [role, setRole] = useState('')
+  const [handNameList, setHandNameList] = useState<string[]>([])
   const [score, setScore] = useState(0)
   const [isJudged, setIsJudged] = useState(false)
 
@@ -40,8 +40,8 @@ export default function Home() {
   const processInput = () => {
     const tokens = tokenize(inputText)
 
-    if (tokens.length <= 0 || tokens.length >= 6) {
-      setRole('役なし')
+    if (tokens.length !== 5) {
+      setHandNameList(['役なし'])
       setScore(0)
       setIsJudged(true)
       return
@@ -62,7 +62,7 @@ export default function Home() {
     for (const hand of cannotCompositeHands.sort((a, b) => b.points - a.points)) {
       // 得点の降順で判定
       if (hand.judgeFunction(tokens)) {
-        setRole(hand.name)
+        setHandNameList([hand.name])
         setScore(hand.points)
         setIsJudged(true)
 
@@ -85,20 +85,22 @@ export default function Home() {
       }
     }
 
-    setRole(appliedHands.map(h => h.name).join('\n'))
+    setHandNameList(appliedHands.map(h => h.name))
     setScore(appliedHands.reduce((acc, cur) => acc += cur.points, 0))
     setIsJudged(true)
   }
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setInputText(e.target.value)
-    setRole('')
+    setHandNameList([])
     setScore(0)
     setIsJudged(false)
   }
 
+  const formattedHandNames = handNameList.join('\n')
+
   const handlePostToX = () => {
-    const text = `${inputText}\n\n${role}\n\n${getScoreString()}\n\n#ふらんちゃんチャレンジ\nhttps://franchallenge.web.app`
+    const text = `${inputText}\n\n${formattedHandNames}\n\n${getScoreString()}\n\n#ふらんちゃんチャレンジ\nhttps://franchallenge.web.app`
     const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`
     window.open(url, '_blank')
   }
@@ -112,7 +114,7 @@ export default function Home() {
         <div className="card">
           {isJudged ? (
             <div style={{marginBottom: '0.5rem'}}>
-              <p style={{marginBottom: '0.5rem', whiteSpace: 'pre-line'}}>{role}</p>
+              <p style={{marginBottom: '0.5rem', whiteSpace: 'pre-line'}}>{formattedHandNames}</p>
               <p>{getScoreString()}</p>
             </div>
           ) : null}
